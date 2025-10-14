@@ -1,0 +1,56 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Entrar";
+}
+
+<link rel="stylesheet" href="~/css/cssLogin.css" asp-append-version="true" />
+
+<div class="row">
+	<div class="classeFundo text-white col-md-4 offset-4 bg-primary rounded-3 ">
+		<h1>@ViewData["Title"]</h1>
+        <section>
+            <form id="account" method="post">
+                <h2>Digite suas credencias para fazer login.</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3 text-black">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 text-black">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password" class="form-label">Senha</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3 ">
+					<div class="form-check ">
+						<label asp-for="Input.RememberMe" class="form-label">
+							<input class="form-check-input" asp-for="Input.RememberMe" />
+							@Html.DisplayNameFor(m => m.Input.RememberMe)
+						</label>
+					</div>
+					<a id="forgot-password" asp-page="./ForgotPassword" class="text-white small">Esqueceu sua senha?</a>
+				</div>
+                
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-info">Entrar</button>
+				</div>
+              
+                <div>
+                    
+                    <div class="register-link mb-4">
+                        Não tem uma conta?<a asp-page="./Register" class="text-white small">Cadastrar-se</a>
+                    </div>
+                    
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

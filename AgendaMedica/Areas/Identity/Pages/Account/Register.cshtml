@@ -1,0 +1,76 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<div class="container-fluid p-0">
+    <div class="row min-vh-100 g-0">
+
+        <!-- Coluna Esquerda (FormulÃ¡rio) -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center bg-white p-5">
+            <div class="w-100" style="max-width: 380px;">
+                <h2 class="fw-bold mb-2 text-center text-dark">Cadastro</h2>
+               
+
+                <form method="post" asp-action="SignUp">
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold small text-muted">Email</label>
+                        <input type="email" class="form-control border-secondary-subtle" id="email" name="Email" placeholder="Insira seu Email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold small text-muted">Senha</label>
+                        <input type="password" class="form-control border-secondary-subtle" id="password" name="Password" placeholder="Insira sua Senha" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="confirmPassword" class="form-label fw-semibold small text-muted">Confirmar Senha</label>
+                        <input type="password" class="form-control border-secondary-subtle" id="confirmPassword" name="ConfirmPassword" placeholder="Confirmar sua Senha" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 fw-semibold py-2">Cadastrar</button>
+
+                    <p class="text-center mt-3 mb-0 text-muted">
+                        Você já possui uma conta?
+                        <a asp-action="Login" asp-controller="Account" class="text-decoration-none fw-semibold text-primary">Login</a>
+                    </p>
+                </form>
+
+                <div class="text-center my-3 text-muted">or</div>
+
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" width="18" class="me-2" />
+                        Sign up with Google
+                    </button>
+                    <button type="button" class="btn btn-outline-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" width="18" class="me-2" />
+                        Sign up with Facebook
+                    </button>
+                    <button type="button" class="btn btn-outline-dark">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" width="18" class="me-2" />
+                        Sign up with Twitter
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <!-- Coluna Direita (Imagem) -->
+        <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center bg-light">
+            <img src="~/img/medico2.jpg"
+                 alt="Sign up illustration"
+                 class="img-fluid rounded-end-3"
+                 style="object-fit: cover; height: 100vh; width: 100%;">
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+    
