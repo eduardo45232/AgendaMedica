@@ -9,7 +9,7 @@
 
         //chave estrangeira
         public Guid EspecialidadeId { get; set; }//fk
-        public Especialidade Especialidade { get; set; }
+        public Especialidade? Especialidade { get; set; }
 
     }
 }

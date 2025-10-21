@@ -1,0 +1,107 @@
+﻿@model IEnumerable<AgendaMedica.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container text-light mt-5">
+    <h1 class="text-center display-5 text-primary">Cadastro de <span class="fw-bold">Pacientes</span></h1>
+<p>
+    <a asp-action="Create" class="btn btn-outline-info btn-primary btn-lg w-25 text-light">Novo Paciente</a>
+</p>
+<table class="table table-info table-striped table-borderless">
+    <thead>
+        <tr>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.DataNasc)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.UF)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.CEP)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Prontuario)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+                <th class="bg-primary"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNasc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prontuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td class="text-danger">
+                    <a asp-action="Edit" asp-route-id="@item.PacienteId"
+                           class="btn btn-sm btn-dark btn-outline-secondary text-white me-2 my-3 d-inline-flex align-items-center">
+                        Editar
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.PacienteId"
+                           class="btn btn-sm btn-dark btn-outline-secondary text-white d-inline-flex align-items-center">
+                        Deletar
+                    </a>
+                   
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

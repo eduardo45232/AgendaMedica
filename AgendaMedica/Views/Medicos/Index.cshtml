@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AgendaMedica.Models.Medico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container text-light mt-5">
+    <h1 class="text-center display-5 text-primary">Cadastro de <span class="fw-bold">Médicos</span></h1>
+<p>
+    <a asp-action="Create" class="btn btn-outline-info btn-primary btn-lg w-25 text-light">Adicionar Médico</a>
+</p>
+<table class="table table-info table-striped table-borderless">
+    <thead>
+        <tr>
+            <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.CRM)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+                <th class="bg-primary text-white">
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th class="bg-primary"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CRM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade.Nome)
+            </td>
+                <td class="text-White">
+                    <a asp-action="Edit" asp-route-id="@item.MedicoId"
+                           class="btn btn-sm btn-dark btn-outline-secondary text-white me-2 d-inline-flex align-items-center">
+                        Editar
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.MedicoId"
+                           class="btn btn-sm btn-dark btn-outline-secondary text-white d-inline-flex align-items-center">
+                        Deletar
+                    </a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
